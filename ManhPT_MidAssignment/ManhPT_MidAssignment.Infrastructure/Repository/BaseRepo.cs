@@ -1,0 +1,54 @@
+﻿using ManhPT_MidAssignment.Application.Constacts;
+using ManhPT_MidAssignment.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
+
+namespace ManhPT_MidAssignment.Infrastructure.Repository
+{
+    public abstract class BaseRepo<TEntity> : IBaseRepo<TEntity> where TEntity : class
+    {
+        protected LibraryContext _context;
+        protected DbSet<TEntity> _table;
+        public BaseRepo(LibraryContext dbContext)
+        {
+            _context = dbContext;
+            _table = _context.Set<TEntity>();
+        }
+        public async void DeleteAsync(Guid Id)
+        {
+            var t = await _table.FindAsync(Id);
+            if (t != null)
+            {
+                _table.Remove(t);
+                Save();
+            }
+        }
+
+        public async Task<IEnumerable<TEntity>> GetAllAsync()
+        {
+            return await _table.ToListAsync();
+        }
+
+        public async Task<TEntity> GetByIdAsync(Guid Id)
+        {
+            return await _table.FindAsync(Id);
+        }
+
+        public void InsertAsync(TEntity entity)
+        {
+            _table.Add(entity);
+            Save();
+        }
+
+        public void UpdateAsync(TEntity entity)
+        {
+            _table.Attach(entity);
+            _context.Entry(entity).State = EntityState.Modified;
+            Save();
+        }
+        public void Save()
+        {
+            _context.SaveChanges();
+        }
+    }
+}
+

@@ -1,0 +1,44 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20px;
+}
+.AppHeader {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 20px 4px 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.AppFooter {
+  height: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+.RootContainer {
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.PageContent {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+/* Add margin to the right of the icon to create space between the icon and label */
+.Menu-item {
+  display: flex;
+  align-items: center;
+}
+
+.Menu-item .icon {
+  margin-right: 5px; /* Adjust the value as needed */
+}

@@ -1,0 +1,6 @@
+@ManhPT_MidAssignment.API_HostAddress = http://localhost:5072
+
+GET {{ManhPT_MidAssignment.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
