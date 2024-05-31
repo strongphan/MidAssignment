@@ -1,4 +1,5 @@
 ﻿using ManhPT_MidAssignment.Application.DTOs.BookDTOs;
+using ManhPT_MidAssignment.Application.DTOs.Paging;
 using ManhPT_MidAssignment.Application.Services.BookService;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +14,12 @@ namespace ManhPT_MidAssignment.API.Controllers
         public BooksController(IBookService service) : base(service)
         {
             _service = service;
+        }
+        [HttpPost("filter")]
+        public async Task<IActionResult> GetFilterAsync(FilterRequest request)
+        {
+            var res = await _service.GetFilterAsync(request);
+            return Ok(res);
         }
     }
 }

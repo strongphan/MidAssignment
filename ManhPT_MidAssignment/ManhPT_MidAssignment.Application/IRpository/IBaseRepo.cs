@@ -1,4 +1,4 @@
-﻿namespace ManhPT_MidAssignment.Application.Constacts
+﻿namespace ManhPT_MidAssignment.Application.IRepository
 {
     public interface IBaseRepo<TEntity> where TEntity : class
     {
@@ -6,7 +6,7 @@
         Task<TEntity> GetByIdAsync(Guid Id);
         void InsertAsync(TEntity entity);
         void UpdateAsync(TEntity entity);
-        void DeleteAsync(Guid Id);
+        void DeleteAsync(TEntity entity);
         void Save();
     }
 }

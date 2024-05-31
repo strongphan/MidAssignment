@@ -1,5 +1,7 @@
-using ManhPT_MidAssignment.Application.Constacts;
+using ManhPT_MidAssignment.Application.IRepository;
+using ManhPT_MidAssignment.Application.IRpository;
 using ManhPT_MidAssignment.Application.Services.BookService;
+using ManhPT_MidAssignment.Application.Services.CategoryService;
 using ManhPT_MidAssignment.Application.Services.TokenService;
 using ManhPT_MidAssignment.Application.Services.UserService;
 using ManhPT_MidAssignment.Infrastructure.Data;
@@ -71,6 +73,13 @@ builder.Services.AddScoped<IUserService, UserService>();
 //Book services
 builder.Services.AddScoped<IBookRepo, BookRepo>();
 builder.Services.AddScoped<IBookService, BookService>();
+
+//Category services
+builder.Services.AddScoped<ICategoryRepo, CategoryRepo>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+
+//Borrowing services
+builder.Services.AddScoped<IBookBorrowingRequestRepo, BookBorrowingRequestRepo>();
 
 var app = builder.Build();
 

@@ -52,8 +52,8 @@ namespace ManhPT_MidAssignment.Infrastructure.TokenService
         {
             var claims = new List<Claim>
                 {
-                    new Claim("Id", user.Id.ToString()),
-                    new Claim("Name", user.Name!),
+                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                    new Claim(ClaimTypes.Name, user.Name!),
                     new Claim(ClaimTypes.Role, user.Role.ToString()),
                 };
             if (additionalClaims?.Any() == true)

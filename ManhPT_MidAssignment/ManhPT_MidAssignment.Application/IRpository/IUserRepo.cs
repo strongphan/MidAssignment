@@ -1,7 +1,7 @@
 ﻿using ManhPT_MidAssignment.Application.DTOs.AuthDTOs;
 using ManhPT_MidAssignment.Core.Entity;
 
-namespace ManhPT_MidAssignment.Application.Constacts
+namespace ManhPT_MidAssignment.Application.IRepository
 {
     public interface IUserRepo
     {

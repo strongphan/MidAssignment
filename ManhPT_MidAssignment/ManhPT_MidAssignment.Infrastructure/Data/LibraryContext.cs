@@ -39,31 +39,31 @@ namespace ManhPT_MidAssignment.Infrastructure.Data
 
             var users = new List<User>()
                 {
-                        new() { Id= Guid.NewGuid(), Name = "user1", Password = "hashedPassword", Role = Role.User, Email = "user1@example.com" },
-                        new() { Id= Guid.NewGuid(), Name = "user2", Password = "hashedPassword", Role = Role.User, Email = "user2@example.com" },
-                        new() { Id= Guid.NewGuid(), Name = "admin", Password = "hashedPassword", Role = Role.Admin, Email = "admin@example.com" },
-                        new() { Id= Guid.NewGuid(), Name = "user3", Password = "hashedPassword", Role = Role.User, Email = "user3@example.com" },
-                        new() { Id= Guid.NewGuid(), Name = "user4", Password = "hashedPassword", Role = Role.User, Email = "user4@example.com" },
+                        new() { Id= Guid.NewGuid(), Name = "user1", Password = "$2a$12$0NPISodxxD/AH/OGrKghM.xTFgZHmg1MZlDC.FJo6SS7gYSdhdo9i", Role = Role.User, Email = "user1@example.com" , CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now},
+                        new() { Id= Guid.NewGuid(), Name = "user2", Password = "$2a$12$0NPISodxxD/AH/OGrKghM.xTFgZHmg1MZlDC.FJo6SS7gYSdhdo9i", Role = Role.User, Email = "user2@example.com" , CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now},
+                        new() { Id= Guid.NewGuid(), Name = "admin", Password = "$2a$12$0NPISodxxD/AH/OGrKghM.xTFgZHmg1MZlDC.FJo6SS7gYSdhdo9i", Role = Role.Admin, Email = "admin@example.com" , CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now},
+                        new() { Id= Guid.NewGuid(), Name = "user3", Password = "$2a$12$0NPISodxxD/AH/OGrKghM.xTFgZHmg1MZlDC.FJo6SS7gYSdhdo9i", Role = Role.User, Email = "user3@example.com" , CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now},
+                        new() { Id= Guid.NewGuid(), Name = "user4", Password = "$2a$12$0NPISodxxD/AH/OGrKghM.xTFgZHmg1MZlDC.FJo6SS7gYSdhdo9i", Role = Role.User, Email = "user4@example.com" , CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now},
                 };
             modelBuilder.Entity<User>().HasData(users);
 
             var categories = new List<Category>()
                 {
-                    new Category { Id= Guid.NewGuid(), Name = "Fiction" },
-                    new Category { Id= Guid.NewGuid(), Name = "Non-Fiction" },
-                    new Category { Id= Guid.NewGuid(), Name = "Science Fiction" },
-                    new Category { Id= Guid.NewGuid(), Name = "Fantasy" },
-                    new Category { Id= Guid.NewGuid(), Name = "Mystery" },
+                    new Category { Id= Guid.NewGuid(), Name = "Fiction" , CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now},
+                    new Category { Id= Guid.NewGuid(), Name = "Non-Fiction", CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now },
+                    new Category { Id= Guid.NewGuid(), Name = "Science Fiction" , CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now},
+                    new Category { Id= Guid.NewGuid(), Name = "Fantasy" , CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now},
+                    new Category { Id= Guid.NewGuid(), Name = "Mystery" , CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now},
                 };
             modelBuilder.Entity<Category>().HasData(categories);
 
             var books = new List<Book>()
                 {
-                    new Book { Id= Guid.NewGuid(), Title = "The Lord of the Rings", Author = "J. R. R. Tolkien", CategoryId = categories[0].Id }, // Fiction
-                    new Book { Id= Guid.NewGuid(), Title =  "A Brief History of Time", Author = "Stephen Hawking", CategoryId = categories[1].Id }, // Non-Fiction
-                    new Book { Id= Guid.NewGuid(), Title = "Ender's Game", Author = "Orson Scott Card", CategoryId = categories[2].Id }, // Science Fiction
-                    new Book { Id= Guid.NewGuid(), Title = "The Name of the Wind", Author = "Patrick Rothfuss", CategoryId = categories[3].Id }, // Fantasy
-                    new Book { Id= Guid.NewGuid(), Title = "And Then There Were None", Author = "Agatha Christie", CategoryId = categories[4].Id }, // Mystery
+                    new Book { Id= Guid.NewGuid(), Title = "The Lord of the Rings", Author = "J. R. R. Tolkien", CategoryId = categories[0].Id , CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now}, // Fiction
+                    new Book { Id= Guid.NewGuid(), Title =  "A Brief History of Time", Author = "Stephen Hawking", CategoryId = categories[1].Id, CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now }, // Non-Fiction
+                    new Book { Id= Guid.NewGuid(), Title = "Ender's Game", Author = "Orson Scott Card", CategoryId = categories[2].Id, CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now }, // Science Fiction
+                    new Book { Id= Guid.NewGuid(), Title = "The Name of the Wind", Author = "Patrick Rothfuss", CategoryId = categories[3].Id, CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now }, // Fantasy
+                    new Book { Id= Guid.NewGuid(), Title = "And Then There Were None", Author = "Agatha Christie", CategoryId = categories[4].Id, CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now }, // Mystery
                 };
             modelBuilder.Entity<Book>().HasData(books);
 

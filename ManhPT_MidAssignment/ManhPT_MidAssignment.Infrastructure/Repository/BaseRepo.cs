@@ -1,4 +1,4 @@
-﻿using ManhPT_MidAssignment.Application.Constacts;
+﻿using ManhPT_MidAssignment.Application.IRepository;
 using ManhPT_MidAssignment.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,19 +13,18 @@ namespace ManhPT_MidAssignment.Infrastructure.Repository
             _context = dbContext;
             _table = _context.Set<TEntity>();
         }
-        public async void DeleteAsync(Guid Id)
+        public async void DeleteAsync(TEntity entity)
         {
-            var t = await _table.FindAsync(Id);
-            if (t != null)
-            {
-                _table.Remove(t);
-                Save();
-            }
+
+            _table.Remove(entity);
+            Save();
+
         }
 
         public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
             return await _table.ToListAsync();
+
         }
 
         public async Task<TEntity> GetByIdAsync(Guid Id)

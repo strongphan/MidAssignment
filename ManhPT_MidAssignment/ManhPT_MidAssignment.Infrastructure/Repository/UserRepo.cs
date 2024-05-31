@@ -1,4 +1,4 @@
-﻿using ManhPT_MidAssignment.Application.Constacts;
+﻿using ManhPT_MidAssignment.Application.IRepository;
 using ManhPT_MidAssignment.Application.DTOs.AuthDTOs;
 using ManhPT_MidAssignment.Application.Services.TokenService;
 using ManhPT_MidAssignment.Core.Entity;
@@ -55,8 +55,8 @@ namespace ManhPT_MidAssignment.Infrastructure.Repository
                 Email = dto.Email,
                 Password = BCrypt.Net.BCrypt.HashPassword(dto.Password),
                 Role = Core.Enum.Role.User,
-                CreatedOn = DateTime.UtcNow,
-                ModifiedOn = DateTime.UtcNow,
+                CreatedAt = DateTime.UtcNow,
+                ModifiedAt = DateTime.UtcNow,
                 CreatedBy = "ManhPhan",
                 ModifiedBy = "ManhPhan",
             });

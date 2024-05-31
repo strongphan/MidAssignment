@@ -4,8 +4,8 @@
     {
         Task<IEnumerable<TEntityDto>> GetAllAsync();
         Task<TEntityDto> GetByIdAsync(Guid Id);
-        void InsertAsync(TEntityCreateDto entityDto);
-        void UpdateAsync(Guid id, TEntityCreateDto entityDto);
+        void InsertAsync(TEntityCreateDto entityDto, string name);
+        void UpdateAsync(Guid id, TEntityCreateDto entityDto, string name);
         void DeleteAsync(Guid id);
         void ValidateDTO(TEntityCreateDto dto);
 

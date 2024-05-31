@@ -30,32 +30,35 @@ namespace ManhPT_MidAssignment.Infrastructure.Migrations
 
                     b.Property<string>("Author")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("AvailableCopies")
-                        .HasColumnType("int");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<Guid>("CategoryId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("CreatedOn")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<bool>("IsAvailable")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
@@ -66,42 +69,52 @@ namespace ManhPT_MidAssignment.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("5a879954-b89a-49fc-9c9a-707809235242"),
+                            Id = new Guid("c3382870-66ae-4575-b860-da5d246d57c3"),
                             Author = "J. R. R. Tolkien",
-                            AvailableCopies = 0,
-                            CategoryId = new Guid("ac7d781f-19fe-4959-b9ed-9a85a68d069c"),
+                            CategoryId = new Guid("1f04fa64-3152-48c7-8fab-8450e6664b2c"),
+                            CreatedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3327),
+                            IsAvailable = true,
+                            ModifiedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3328),
                             Title = "The Lord of the Rings"
                         },
                         new
                         {
-                            Id = new Guid("837b48c7-126b-442e-912a-d0c8eca4673c"),
+                            Id = new Guid("79aeedbb-df61-4748-b6e2-8c5461e6f3ef"),
                             Author = "Stephen Hawking",
-                            AvailableCopies = 0,
-                            CategoryId = new Guid("405bd6ce-4c63-4fbb-976b-9a0c0f9b7dec"),
+                            CategoryId = new Guid("6dadbd5e-7271-42d8-bba5-2144c73574cc"),
+                            CreatedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3332),
+                            IsAvailable = true,
+                            ModifiedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3333),
                             Title = "A Brief History of Time"
                         },
                         new
                         {
-                            Id = new Guid("da863ab0-80c0-45f5-9287-193e5e85c7e9"),
+                            Id = new Guid("720e2c5a-2cad-40df-9af6-b543ad1f3621"),
                             Author = "Orson Scott Card",
-                            AvailableCopies = 0,
-                            CategoryId = new Guid("f7e248e9-2740-4c1c-93b2-4a69ef1d098a"),
+                            CategoryId = new Guid("01f95049-9e3d-481c-a94c-dc500e417e7a"),
+                            CreatedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3336),
+                            IsAvailable = true,
+                            ModifiedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3337),
                             Title = "Ender's Game"
                         },
                         new
                         {
-                            Id = new Guid("18fcf2db-7d32-43c2-bfd5-7eafeecf8694"),
+                            Id = new Guid("c23c9363-686c-466f-9cfa-af6f062a4464"),
                             Author = "Patrick Rothfuss",
-                            AvailableCopies = 0,
-                            CategoryId = new Guid("75da2709-d25f-445d-9d08-da5c893b7733"),
+                            CategoryId = new Guid("e262bd07-fdd5-43ab-ac21-2f8fbd7961a2"),
+                            CreatedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3340),
+                            IsAvailable = true,
+                            ModifiedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3340),
                             Title = "The Name of the Wind"
                         },
                         new
                         {
-                            Id = new Guid("be84bc38-bd43-496a-84d3-f824e76cdf9c"),
+                            Id = new Guid("18e26815-6f42-4deb-99b7-096df3ebf180"),
                             Author = "Agatha Christie",
-                            AvailableCopies = 0,
-                            CategoryId = new Guid("d7ce4620-589e-403d-b657-bfbcd7fa1f24"),
+                            CategoryId = new Guid("c49db540-9936-475e-b537-c962b207ee8b"),
+                            CreatedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3346),
+                            IsAvailable = true,
+                            ModifiedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3347),
                             Title = "And Then There Were None"
                         });
                 });
@@ -115,20 +128,23 @@ namespace ManhPT_MidAssignment.Infrastructure.Migrations
                     b.Property<Guid?>("ApproverId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("CreatedOn")
-                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DateRequested")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("IsReturn")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("ModifiedBy")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("RequestorId")
                         .HasColumnType("uniqueidentifier");
@@ -156,20 +172,17 @@ namespace ManhPT_MidAssignment.Infrastructure.Migrations
                     b.Property<Guid>("BookBorrowingRequestId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("CreatedOn")
+                    b.Property<DateTime?>("ModifiedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ModifiedBy")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
 
                     b.HasKey("BorrowingRequestId", "BookId");
 
@@ -186,21 +199,22 @@ namespace ManhPT_MidAssignment.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("CreatedOn")
+                    b.Property<DateTime?>("ModifiedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
@@ -209,27 +223,37 @@ namespace ManhPT_MidAssignment.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ac7d781f-19fe-4959-b9ed-9a85a68d069c"),
+                            Id = new Guid("1f04fa64-3152-48c7-8fab-8450e6664b2c"),
+                            CreatedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3235),
+                            ModifiedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3236),
                             Name = "Fiction"
                         },
                         new
                         {
-                            Id = new Guid("405bd6ce-4c63-4fbb-976b-9a0c0f9b7dec"),
+                            Id = new Guid("6dadbd5e-7271-42d8-bba5-2144c73574cc"),
+                            CreatedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3262),
+                            ModifiedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3262),
                             Name = "Non-Fiction"
                         },
                         new
                         {
-                            Id = new Guid("f7e248e9-2740-4c1c-93b2-4a69ef1d098a"),
+                            Id = new Guid("01f95049-9e3d-481c-a94c-dc500e417e7a"),
+                            CreatedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3265),
+                            ModifiedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3265),
                             Name = "Science Fiction"
                         },
                         new
                         {
-                            Id = new Guid("75da2709-d25f-445d-9d08-da5c893b7733"),
+                            Id = new Guid("e262bd07-fdd5-43ab-ac21-2f8fbd7961a2"),
+                            CreatedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3267),
+                            ModifiedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3268),
                             Name = "Fantasy"
                         },
                         new
                         {
-                            Id = new Guid("d7ce4620-589e-403d-b657-bfbcd7fa1f24"),
+                            Id = new Guid("c49db540-9936-475e-b537-c962b207ee8b"),
+                            CreatedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3270),
+                            ModifiedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3271),
                             Name = "Mystery"
                         });
                 });
@@ -240,25 +264,26 @@ namespace ManhPT_MidAssignment.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("CreatedOn")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("ModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Password")
                         .IsRequired()
@@ -274,42 +299,52 @@ namespace ManhPT_MidAssignment.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("389a7dba-4ba0-4f6b-af81-eaa26acde327"),
+                            Id = new Guid("babe40c2-6b18-465b-be89-00994a44d494"),
+                            CreatedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3085),
                             Email = "user1@example.com",
+                            ModifiedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3115),
                             Name = "user1",
-                            Password = "hashedPassword",
+                            Password = "$2a$12$0NPISodxxD/AH/OGrKghM.xTFgZHmg1MZlDC.FJo6SS7gYSdhdo9i",
                             Role = 0
                         },
                         new
                         {
-                            Id = new Guid("83aefdbf-b60d-4de4-8641-be17f2c04d67"),
+                            Id = new Guid("d6d2aeb7-b798-446a-947d-2a4e3926b2a1"),
+                            CreatedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3121),
                             Email = "user2@example.com",
+                            ModifiedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3122),
                             Name = "user2",
-                            Password = "hashedPassword",
+                            Password = "$2a$12$0NPISodxxD/AH/OGrKghM.xTFgZHmg1MZlDC.FJo6SS7gYSdhdo9i",
                             Role = 0
                         },
                         new
                         {
-                            Id = new Guid("d5c02a8e-8ddb-4097-9f13-3f443388d79c"),
+                            Id = new Guid("20ec4eb0-71a6-4f00-9e24-28cfa5c1008e"),
+                            CreatedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3125),
                             Email = "admin@example.com",
+                            ModifiedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3125),
                             Name = "admin",
-                            Password = "hashedPassword",
+                            Password = "$2a$12$0NPISodxxD/AH/OGrKghM.xTFgZHmg1MZlDC.FJo6SS7gYSdhdo9i",
                             Role = 1
                         },
                         new
                         {
-                            Id = new Guid("f10096bf-0b7a-4876-8645-e36f086e5873"),
+                            Id = new Guid("208b1fc4-a19b-4634-8233-333a521117ec"),
+                            CreatedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3128),
                             Email = "user3@example.com",
+                            ModifiedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3129),
                             Name = "user3",
-                            Password = "hashedPassword",
+                            Password = "$2a$12$0NPISodxxD/AH/OGrKghM.xTFgZHmg1MZlDC.FJo6SS7gYSdhdo9i",
                             Role = 0
                         },
                         new
                         {
-                            Id = new Guid("0b817c57-270e-4824-9274-055fa097f3c9"),
+                            Id = new Guid("9cd712f0-cdaa-4ad7-b7e0-278b68c5ccb0"),
+                            CreatedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3131),
                             Email = "user4@example.com",
+                            ModifiedAt = new DateTime(2024, 5, 31, 13, 4, 31, 511, DateTimeKind.Local).AddTicks(3132),
                             Name = "user4",
-                            Password = "hashedPassword",
+                            Password = "$2a$12$0NPISodxxD/AH/OGrKghM.xTFgZHmg1MZlDC.FJo6SS7gYSdhdo9i",
                             Role = 0
                         });
                 });
