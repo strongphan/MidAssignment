@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ManhPT_MidAssignment.Core.Entity
+namespace ManhPT_MidAssignment.Domain.Entity
 {
     public class Category : BaseEntity
     {

@@ -1,7 +1,7 @@
-﻿using ManhPT_MidAssignment.Core.Enum;
+﻿using ManhPT_MidAssignment.Domain.Enum;
 using System.ComponentModel.DataAnnotations;
 
-namespace ManhPT_MidAssignment.Core.Entity
+namespace ManhPT_MidAssignment.Domain.Entity
 {
     public class User : BaseEntity
     {

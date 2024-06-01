@@ -1,74 +1,61 @@
 ﻿using ManhPT_MidAssignment.Application.DTOs.AuthDTOs;
 using ManhPT_MidAssignment.Application.IRepository;
-using ManhPT_MidAssignment.Application.IRpository;
-using ManhPT_MidAssignment.Core.Entity;
-using ManhPT_MidAssignment.Core.Enum;
+using ManhPT_MidAssignment.Application.Services.TokenService;
+using ManhPT_MidAssignment.Domain.Entity;
 
 namespace ManhPT_MidAssignment.Application.Services.UserService
 {
     public class UserService : IUserService
     {
         private readonly IUserRepo _userRepo;
-        private readonly IBookBorrowingRequestRepo _borrowingRequestRepo;
+        private readonly ITokenService _tokenService;
 
-        public UserService(IUserRepo userRepo, IBookBorrowingRequestRepo borrowingRequestRepo)
+        public UserService(IUserRepo userRepo, ITokenService tokenService)
         {
             _userRepo = userRepo;
-            _borrowingRequestRepo = borrowingRequestRepo;
+            _tokenService = tokenService;
         }
         public async Task<User> FindUserByEmailAsync(string email) => await _userRepo.FindUserByEmailAsync(email);
 
-        public async Task<LoginResponse> LoginAsync(LoginDTO dto) => await _userRepo.LoginAsync(dto);
-
-        public async Task<RegistrationResponse> RegisterAsync(RegisterUserDto dto) => await _userRepo.RegisterAsync(dto);
-        public async Task<string> BorrowBooksAsync(Guid userId, string userName, List<Guid> bookIds)
+        public async Task<LoginResponse> LoginAsync(LoginDTO dto)
         {
-            if (bookIds.Count > 5)
+            var getUser = await FindUserByEmailAsync(dto.Email!);
+            if (getUser == null)
+                return new LoginResponse(false, "User not found");
+
+            bool checkPassword = BCrypt.Net.BCrypt.Verify(dto.Password, getUser.Password);
+            if (checkPassword)
             {
-                return "Cannot borrow more than 5 books in one request.";
+                return new LoginResponse(true, "Login success", _tokenService.GenerateJWT(getUser));
+
             }
-
-            var month = DateTime.Now.Month;
-
-            var userRequestsThisMonth = await _borrowingRequestRepo.GetRequestsByUserAndMonth(userId, month);
-
-            if (userRequestsThisMonth.Count >= 3)
+            else
             {
-                return "Limit of 3 borrowing requests per month exceeded.";
+                return new LoginResponse(false, "Invalid credentials");
             }
+        }
 
-            var newRequest = new BookBorrowingRequest
+        public async Task<RegistrationResponse> RegisterAsync(RegisterUserDto dto)
+        {
+            var getUser = await FindUserByEmailAsync(dto.Email!);
+            if (getUser != null)
+                return new RegistrationResponse(false, "User alredy exist");
+
+            var user = new User
             {
-                RequestorId = userId,
-                DateRequested = DateTime.Now,
-                Status = Status.Waiting,
-                CreatedBy = userName,
-                CreatedAt = DateTime.Now,
-                BookBorrowingRequestDetails = bookIds.Select(bookId => new BookBorrowingRequestDetails
-                {
-                    BookId = bookId,
-                }).ToList()
+                Name = dto.Name,
+                Email = dto.Email,
+                Password = BCrypt.Net.BCrypt.HashPassword(dto.Password),
+                Role = Domain.Enum.Role.User,
+                CreatedAt = DateTime.UtcNow,
+                ModifiedAt = DateTime.UtcNow,
+                CreatedBy = "ManhPhan",
+                ModifiedBy = "ManhPhan",
             };
+            _userRepo.InsertAsync(user);
+            return new RegistrationResponse(true, "Register success");
 
-            _borrowingRequestRepo.InsertAsync(newRequest);
-            return $"Request submitted. Status: {newRequest.Status}";
         }
 
-        public async Task<bool> UpdateRequestStatus(Guid userId, string userName, Guid requestId, Status status)
-        {
-            var borrowingRequest = await _borrowingRequestRepo.GetByIdAsync(requestId);
-            if (borrowingRequest == null)
-            {
-                throw new Exception("Not Found");
-            }
-            if (borrowingRequest.Status != Status.Waiting)
-            {
-                borrowingRequest.Status = status;
-                borrowingRequest.ModifiedBy = userName;
-                borrowingRequest.ModifiedAt = DateTime.Now;
-            }
-            _borrowingRequestRepo.UpdateAsync(borrowingRequest);
-            return true;
-        }
     }
 }

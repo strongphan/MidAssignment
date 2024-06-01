@@ -11,6 +11,7 @@ const DetailPostLazy = React.lazy(() => import("../pages/posts/DetailPost"));
 const PostsLazy = React.lazy(() => import("../pages/posts/Posts"));
 const ProfileLazy = React.lazy(() => import("../pages/Profile"));
 const HomeLazy = React.lazy(() => import("../pages/home/Home"));
+const BooksTableLazy = React.lazy(() => import("../pages/books/Books"));
 
 export const AppRoute = () => {
   const elements = useRoutes([
@@ -28,6 +29,24 @@ export const AppRoute = () => {
       element: (
         <Suspense>
           <PostsLazy />
+        </Suspense>
+      ),
+      errorElement: <NotFound />,
+    },
+    {
+      path: path.POSTS,
+      element: (
+        <Suspense>
+          <PostsLazy />
+        </Suspense>
+      ),
+      errorElement: <NotFound />,
+    },
+    {
+      path: path.BOOKS,
+      element: (
+        <Suspense>
+          <BooksTableLazy />
         </Suspense>
       ),
       errorElement: <NotFound />,

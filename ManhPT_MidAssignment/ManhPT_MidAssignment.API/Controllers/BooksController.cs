@@ -1,5 +1,5 @@
-﻿using ManhPT_MidAssignment.Application.DTOs.BookDTOs;
-using ManhPT_MidAssignment.Application.DTOs.Paging;
+﻿using ManhPT_MidAssignment.Application.Common.Paging;
+using ManhPT_MidAssignment.Application.DTOs.BookDTOs;
 using ManhPT_MidAssignment.Application.Services.BookService;
 using Microsoft.AspNetCore.Mvc;
 

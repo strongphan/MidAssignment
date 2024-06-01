@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ManhPT_MidAssignment.Core.Entity
+namespace ManhPT_MidAssignment.Domain.Entity
 {
     public class Book : BaseEntity
     {
@@ -16,7 +16,7 @@ namespace ManhPT_MidAssignment.Core.Entity
         public string? Description { get; set; }
         public Guid CategoryId { get; set; }
         public Category Category { get; set; }
-        public bool IsAvailable { get; set; } = true;
+        public int AvailableCopies { get; set; }
         public ICollection<BookBorrowingRequestDetails> BookBorrowingRequestDetails { get; set; }
     }
 }

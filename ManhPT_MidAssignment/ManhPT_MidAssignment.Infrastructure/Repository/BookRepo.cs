@@ -1,6 +1,6 @@
-﻿using ManhPT_MidAssignment.Application.DTOs.Paging;
+﻿using ManhPT_MidAssignment.Application.Common.Paging;
 using ManhPT_MidAssignment.Application.IRepository;
-using ManhPT_MidAssignment.Core.Entity;
+using ManhPT_MidAssignment.Domain.Entity;
 using ManhPT_MidAssignment.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;

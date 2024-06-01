@@ -11,7 +11,7 @@ function NavBar() {
 
   return (
     <div className="Navbar">
-      <Menu mode="horizontal" onClick={({ key }) => handleMenuClick(key)}>
+      <Menu mode="vertical" onClick={({ key }) => handleMenuClick(key)}>
         <Menu.Item key="/">
           <HomeOutlined />
           Home
@@ -19,6 +19,10 @@ function NavBar() {
         <Menu.Item key="/posts">
           <FileOutlined />
           Posts
+        </Menu.Item>
+        <Menu.Item key="/books">
+          <FileOutlined />
+          Books
         </Menu.Item>
         <Menu.Item key="/profile">
           <ProfileOutlined />

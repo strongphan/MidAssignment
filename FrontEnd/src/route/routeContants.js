@@ -7,4 +7,5 @@ export const path = {
   DETAILPOST__ID: "posts/:id",
   EDITPOST__ID: "posts/edit/:id",
   CREATEPOST: "posts/create",
+  BOOKS: "books",
 };

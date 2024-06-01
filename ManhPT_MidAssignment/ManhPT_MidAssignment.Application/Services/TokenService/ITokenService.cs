@@ -1,4 +1,4 @@
-﻿using ManhPT_MidAssignment.Core.Entity;
+﻿using ManhPT_MidAssignment.Domain.Entity;
 using System.Security.Claims;
 
 namespace ManhPT_MidAssignment.Application.Services.TokenService

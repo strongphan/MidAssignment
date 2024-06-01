@@ -1,12 +1,11 @@
-﻿using ManhPT_MidAssignment.Application.Services.TokenService;
-using ManhPT_MidAssignment.Core.Entity;
+﻿using ManhPT_MidAssignment.Domain.Entity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace ManhPT_MidAssignment.Infrastructure.TokenService
+namespace ManhPT_MidAssignment.Application.Services.TokenService
 {
     public sealed class TokenService : ITokenService
     {

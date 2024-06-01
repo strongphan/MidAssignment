@@ -1,4 +1,4 @@
-﻿namespace ManhPT_MidAssignment.Application.DTOs.Paging
+﻿namespace ManhPT_MidAssignment.Application.Common.Paging
 {
     public class PaginationResponse<T>
     {

@@ -5,10 +5,12 @@ import { AppRoute } from "../route/AppRoute";
 const Public = () => {
   return (
     <div>
-      <Navbar />
+      <div style={{ display: "flex" }}>
+        <Navbar />
 
-      <div className="PageContent">
-        <AppRoute />
+        <div className="PageContent">
+          <AppRoute />
+        </div>
       </div>
 
       <Footer />

@@ -1,5 +1,5 @@
-﻿using ManhPT_MidAssignment.Core.Entity;
-using ManhPT_MidAssignment.Core.Enum;
+﻿using ManhPT_MidAssignment.Domain.Entity;
+using ManhPT_MidAssignment.Domain.Enum;
 using Microsoft.EntityFrameworkCore;
 
 namespace ManhPT_MidAssignment.Infrastructure.Data
@@ -36,7 +36,6 @@ namespace ManhPT_MidAssignment.Infrastructure.Data
 
             modelBuilder.Entity<BookBorrowingRequestDetails>()
                 .HasKey(br => new { br.BorrowingRequestId, br.BookId }); // Define composite primary key
-
             var users = new List<User>()
                 {
                         new() { Id= Guid.NewGuid(), Name = "user1", Password = "$2a$12$0NPISodxxD/AH/OGrKghM.xTFgZHmg1MZlDC.FJo6SS7gYSdhdo9i", Role = Role.User, Email = "user1@example.com" , CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now},
@@ -59,12 +58,20 @@ namespace ManhPT_MidAssignment.Infrastructure.Data
 
             var books = new List<Book>()
                 {
-                    new Book { Id= Guid.NewGuid(), Title = "The Lord of the Rings", Author = "J. R. R. Tolkien", CategoryId = categories[0].Id , CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now}, // Fiction
-                    new Book { Id= Guid.NewGuid(), Title =  "A Brief History of Time", Author = "Stephen Hawking", CategoryId = categories[1].Id, CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now }, // Non-Fiction
-                    new Book { Id= Guid.NewGuid(), Title = "Ender's Game", Author = "Orson Scott Card", CategoryId = categories[2].Id, CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now }, // Science Fiction
-                    new Book { Id= Guid.NewGuid(), Title = "The Name of the Wind", Author = "Patrick Rothfuss", CategoryId = categories[3].Id, CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now }, // Fantasy
-                    new Book { Id= Guid.NewGuid(), Title = "And Then There Were None", Author = "Agatha Christie", CategoryId = categories[4].Id, CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now }, // Mystery
-                };
+                    new Book { Id= Guid.NewGuid(), Title = "The Lord of the Rings", Author = "J. R. R. Tolkien", AvailableCopies=10 ,CategoryId = categories[0].Id , CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now}, // Fiction
+                    new Book { Id= Guid.NewGuid(), Title =  "A Brief History of Time", Author = "Stephen Hawking", AvailableCopies=10, CategoryId = categories[1].Id, CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now }, // Non-Fiction
+                    new Book { Id= Guid.NewGuid(), Title = "Ender's Game", Author = "Orson Scott Card", AvailableCopies=10, CategoryId = categories[2].Id, CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now }, // Science Fiction
+                    new Book { Id= Guid.NewGuid(), Title = "The Name of the Wind", Author = "Patrick Rothfuss", AvailableCopies=10, CategoryId = categories[3].Id, CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now }, // Fantasy
+                    new Book { Id= Guid.NewGuid(), Title = "And Then There Were None", Author = "Agatha Christie", AvailableCopies=10, CategoryId = categories[4].Id, CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now }, // Mystery
+                    new Book { Id= Guid.NewGuid(), Title = "Pride and Prejudice", Author = "Jane Austen", AvailableCopies=10, CategoryId = categories[1].Id, CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now},
+                    new Book { Id= Guid.NewGuid(), Title = "To Kill a Mockingbird", Author = "Harper Lee", AvailableCopies=10, CategoryId = categories[2].Id, CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now},
+                    new Book { Id= Guid.NewGuid(), Title = "The Great Gatsby", Author = "F. Scott Fitzgerald", AvailableCopies=10, CategoryId = categories[3].Id, CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now},
+                    new Book { Id= Guid.NewGuid(), Title = "One Hundred Years of Solitude", Author = "Gabriel García Márquez", AvailableCopies=10, CategoryId = categories[4].Id, CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now},
+                    new Book { Id= Guid.NewGuid(), Title = "In Search of Lost Time", Author = "Marcel Proust", AvailableCopies=10, CategoryId = categories[2].Id, CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now},
+                    new Book { Id= Guid.NewGuid(), Title = "Don Quixote", Author = "Miguel de Cervantes", AvailableCopies=10, CategoryId = categories[4].Id, CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now},
+                    new Book { Id= Guid.NewGuid(), Title = "Frankenstein", Author = "Mary Shelley", AvailableCopies=10, CategoryId = categories[3].Id, CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now},
+
+            };
             modelBuilder.Entity<Book>().HasData(books);
 
 

@@ -1,0 +1,5 @@
+những giả định: 
+Một sách thuộc 1 danh mục
+số lượng sách là 1, khi có người dùng mượn thì người khác ko mượn
+reject không được tính là một request 
+vào lịch sử muượn sách -> detail 

@@ -6,7 +6,6 @@ using ManhPT_MidAssignment.Application.Services.TokenService;
 using ManhPT_MidAssignment.Application.Services.UserService;
 using ManhPT_MidAssignment.Infrastructure.Data;
 using ManhPT_MidAssignment.Infrastructure.Repository;
-using ManhPT_MidAssignment.Infrastructure.TokenService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -21,7 +20,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //Db connection
-var connectionString = builder.Configuration.GetConnectionString("BookManager");
+var connectionString = builder.Configuration.GetConnectionString("LibraryManager");
 builder.Services.AddDbContext<LibraryContext>(options => options.UseSqlServer(connectionString));
 
 //Add Mapper
@@ -35,12 +34,12 @@ builder.Services.AddAuthentication(option =>
 })
     .AddJwtBearer(options =>
     {
-        options.RequireHttpsMetadata = false; // Add this line
-        options.SaveToken = true; // Add this line
         options.TokenValidationParameters = TokenService.GetTokenValidationParameters(builder.Configuration);
+        options.RequireHttpsMetadata = false;
+        options.SaveToken = true;
     });
 
-//Add Authen in swagger
+//Add Swagger authen
 builder.Services.AddSwaggerGen(opt =>
 {
     var securitySchema = new OpenApiSecurityScheme
@@ -60,6 +59,17 @@ builder.Services.AddSwaggerGen(opt =>
     opt.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         { securitySchema, new[] { "Bearer" } }
+    });
+});
+
+//Add the CORS services
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowOrigin", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
     });
 });
 

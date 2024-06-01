@@ -1,5 +1,5 @@
 ﻿using ManhPT_MidAssignment.Application.Service;
-using ManhPT_MidAssignment.Core.Enum;
+using ManhPT_MidAssignment.Domain.Enum;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
