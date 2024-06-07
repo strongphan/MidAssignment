@@ -6,15 +6,17 @@ namespace ManhPT_MidAssignment.API.Controllers
 {
     [Route("api/user")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class UsersController(IUserService userService) : ControllerBase
     {
-        private readonly IUserService _userService;
+        private readonly IUserService _userService = userService;
 
-        public UsersController(IUserService userService)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetByIdAsync(Guid id)
         {
-            _userService = userService;
+            var dto = await _userService.GetByIdAsync(id);
+            return Ok(dto);
         }
-        [HttpPost("Login")]
+        [HttpPost("login")]
         public async Task<ActionResult<LoginResponse>> LoginAsync(LoginDTO dto)
         {
             var result = await _userService.LoginAsync(dto);

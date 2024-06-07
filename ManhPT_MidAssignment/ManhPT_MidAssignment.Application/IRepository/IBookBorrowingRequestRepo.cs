@@ -9,5 +9,6 @@ namespace ManhPT_MidAssignment.Application.IRpository
         Task<List<BookBorrowingRequest>> GetRequestsByUserAndMonthAsync(Guid userId, int month);
         Task<PaginationResponse<BookBorrowingRequest>> GetRequestAsync(FilterRequest filterRequest);
         Task<PaginationResponse<BookBorrowingRequest>> GetRequestNotReturnedAsync(FilterRequest filterRequest);
+        Task<PaginationResponse<BookBorrowingRequest>> GetRequestByRequestorIdAsync(FilterRequest filterRequest, Guid requestorId);
     }
 }

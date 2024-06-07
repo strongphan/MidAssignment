@@ -4,10 +4,7 @@ using ManhPT_MidAssignment.Infrastructure.Data;
 
 namespace ManhPT_MidAssignment.Infrastructure.Repository
 {
-    public class CategoryRepo : BaseRepo<Category>, ICategoryRepo
+    public class CategoryRepo(LibraryContext dbContext) : BaseRepo<Category>(dbContext), ICategoryRepo
     {
-        public CategoryRepo(LibraryContext dbContext) : base(dbContext)
-        {
-        }
     }
 }

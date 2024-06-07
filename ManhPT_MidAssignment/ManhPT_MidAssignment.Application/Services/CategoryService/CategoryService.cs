@@ -3,16 +3,27 @@ using ManhPT_MidAssignment.Application.DTOs.CategoryDTOs;
 using ManhPT_MidAssignment.Application.IRepository;
 using ManhPT_MidAssignment.Application.Service;
 using ManhPT_MidAssignment.Domain.Entity;
+using ManhPT_MidAssignment.Domain.Exceptions;
 
 namespace ManhPT_MidAssignment.Application.Services.CategoryService
 {
-    public class CategoryService : BaseService<Category, CategoryDTO, CategoryCreateDTO>, ICategoryService
+    public class CategoryService(ICategoryRepo repository, IMapper mapper, IBookRepo bookRepo) : BaseService<Category, CategoryDTO, CategoryCreateDTO>(repository, mapper), ICategoryService
     {
-        public CategoryService(ICategoryRepo repository, IMapper mapper) : base(repository, mapper)
-        {
-        }
+        private readonly IBookRepo _bookRepo = bookRepo;
 
-        public override void ValidateDTO(CategoryCreateDTO dto)
+        public override async Task DeleteAsync(Guid id)
+        {
+            var books = await _bookRepo.GetByCategoryAsync(id);
+            if (books == null)
+            {
+                await base.DeleteAsync(id);
+            }
+            else
+            {
+                throw new DataInvalidException("Category have books, please remove book from category");
+            }
+        }
+        public override async Task ValidateDTO(CategoryCreateDTO dto)
         {
             var a = 1;
         }

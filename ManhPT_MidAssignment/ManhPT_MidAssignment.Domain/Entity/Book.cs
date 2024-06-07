@@ -4,7 +4,6 @@ namespace ManhPT_MidAssignment.Domain.Entity
 {
     public class Book : BaseEntity
     {
-        public Guid Id { get; set; }
 
         [StringLength(100, MinimumLength = 3)]
         public string Title { get; set; }

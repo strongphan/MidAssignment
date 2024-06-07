@@ -22,20 +22,24 @@ namespace ManhPT_MidAssignment.Infrastructure.Data
             modelBuilder.Entity<Book>()
                 .HasOne(b => b.Category)
                 .WithMany(c => c.Books)
-                .HasForeignKey(b => b.CategoryId);
+                .HasForeignKey(b => b.CategoryId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<BookBorrowingRequest>()
                 .HasOne(br => br.Requestor)
                 .WithMany(u => u.BookBorrowingRequests)
-                .HasForeignKey(br => br.RequestorId);
+                .HasForeignKey(br => br.RequestorId)
+                .OnDelete(DeleteBehavior.Restrict);  // Ensure referential integrity on delete
 
             modelBuilder.Entity<BookBorrowingRequest>()
                 .HasOne(br => br.Approver)
                 .WithMany()
-                .HasForeignKey(br => br.ApproverId);
+                .HasForeignKey(br => br.ApproverId)
+                .OnDelete(DeleteBehavior.SetNull);
 
             modelBuilder.Entity<BookBorrowingRequestDetails>()
-                .HasKey(br => new { br.BorrowingRequestId, br.BookId }); // Define composite primary key
+                .HasKey(br => new { br.BorrowingRequestId, br.BookId });
+
             var users = new List<User>()
                 {
                         new() { Id= Guid.NewGuid(), Name = "user1", Password = "$2a$12$0NPISodxxD/AH/OGrKghM.xTFgZHmg1MZlDC.FJo6SS7gYSdhdo9i", Role = Role.User, Email = "user1@example.com" , CreatedAt= DateTime.Now, ModifiedAt =DateTime.Now},

@@ -5,7 +5,6 @@ namespace ManhPT_MidAssignment.Domain.Entity
     public class BookBorrowingRequest : BaseEntity
     {
 
-        public Guid Id { get; set; }
         public Guid RequestorId { get; set; }
         public User Requestor { get; set; }
         public DateTime DateRequested { get; set; }

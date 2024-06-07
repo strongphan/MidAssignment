@@ -13,40 +13,39 @@ namespace ManhPT_MidAssignment.Infrastructure.Repository
             _context = dbContext;
             _table = _context.Set<TEntity>();
         }
-        public async void DeleteAsync(TEntity entity)
-        {
-
-            _table.Remove(entity);
-            Save();
-
-        }
 
         public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return await _table.ToListAsync();
+            return await _table.AsNoTracking().ToListAsync();
 
         }
 
-        public async Task<TEntity> GetByIdAsync(Guid Id)
+        public virtual async Task<TEntity?> GetByIdAsync(Guid id)
         {
-            return await _table.FindAsync(Id);
+            _context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+            return await _table.FindAsync(id);
         }
 
-        public void InsertAsync(TEntity entity)
+        public async Task InsertAsync(TEntity entity)
         {
             _table.Add(entity);
-            Save();
+            await SaveChangeAsync();
         }
 
-        public void UpdateAsync(TEntity entity)
+        public async Task UpdateAsync(TEntity entity)
         {
             _table.Attach(entity);
             _context.Entry(entity).State = EntityState.Modified;
-            Save();
+            await SaveChangeAsync();
         }
-        public void Save()
+        public async Task DeleteAsync(TEntity entity)
         {
-            _context.SaveChanges();
+            _table.Remove(entity);
+            await SaveChangeAsync();
+        }
+        public async Task SaveChangeAsync()
+        {
+            await _context.SaveChangesAsync();
         }
     }
 }

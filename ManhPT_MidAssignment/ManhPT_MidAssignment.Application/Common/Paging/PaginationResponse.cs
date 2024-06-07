@@ -1,14 +1,14 @@
 ﻿namespace ManhPT_MidAssignment.Application.Common.Paging
 {
-    public class PaginationResponse<T>
+    public class PaginationResponse<TEntity>
     {
-        public PaginationResponse(IEnumerable<T> data, int totalCount)
+        public PaginationResponse(IEnumerable<TEntity> data, int totalCount)
         {
             Data = data;
             TotalCount = totalCount;
         }
 
-        public IEnumerable<T> Data { get; }
+        public IEnumerable<TEntity> Data { get; }
         public int TotalCount { get; }
     }
 }

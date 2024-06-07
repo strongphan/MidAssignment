@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ManhPT_MidAssignment.Application.IRepository;
 using ManhPT_MidAssignment.Domain.Entity;
+using ManhPT_MidAssignment.Domain.Exceptions;
 
 namespace ManhPT_MidAssignment.Application.Service
 {
@@ -9,16 +10,16 @@ namespace ManhPT_MidAssignment.Application.Service
         private readonly IBaseRepo<TEntity> _repository = repository;
         protected readonly IMapper _mapper = mapper;
 
-        public async void DeleteAsync(Guid id)
+        public virtual async Task DeleteAsync(Guid id)
         {
             var enity = await _repository.GetByIdAsync(id);
             if (enity == null)
             {
-                throw new Exception("Not Found");
+                throw new NotFoundException();
             }
             else
             {
-                _repository.DeleteAsync(enity);
+                await _repository.DeleteAsync(enity);
             }
         }
 
@@ -29,45 +30,49 @@ namespace ManhPT_MidAssignment.Application.Service
             return dtos;
         }
 
-        public async Task<TEntityDto> GetByIdAsync(Guid Id)
+        public async Task<TEntityDto> GetByIdAsync(Guid id)
         {
-            var entity = await _repository.GetByIdAsync(Id);
+            var entity = await _repository.GetByIdAsync(id);
+            if (entity == null)
+            {
+                throw new NotFoundException();
+            }
             var dto = _mapper.Map<TEntityDto>(entity);
             return dto;
 
         }
 
-        public void InsertAsync(TEntityCreateDto entityDto, string name)
+        public async Task InsertAsync(TEntityCreateDto entityDto, string name)
         {
-            ValidateDTO(entityDto);
+            await ValidateDTO(entityDto);
             var entity = _mapper.Map<TEntity>(entityDto);
             if (entity is BaseEntity baseEntity)
             {
                 baseEntity.CreatedAt = DateTime.Now;
                 baseEntity.CreatedBy = name;
             }
-            _repository.InsertAsync(entity);
+            await _repository.InsertAsync(entity);
         }
 
-        public async void UpdateAsync(Guid id, TEntityCreateDto entityDto, string name)
+        public async Task UpdateAsync(Guid id, TEntityCreateDto entityDto, string name)
         {
-            ValidateDTO(entityDto);
             var entity = await _repository.GetByIdAsync(id);
-            if (entity is BaseEntity baseEntity)
-            {
-                baseEntity.ModifiedAt = DateTime.Now;
-                baseEntity.ModifiedBy = name;
-            }
             if (entity == null)
             {
-                throw new Exception("Not Found");
+                throw new NotFoundException();
             }
             else
             {
                 entity = _mapper.Map<TEntity>(entityDto);
-                _repository.UpdateAsync(entity);
+                if (entity is BaseEntity baseEntity)
+                {
+                    baseEntity.Id = id;
+                    baseEntity.ModifiedAt = DateTime.Now;
+                    baseEntity.ModifiedBy = name;
+                }
+                await _repository.UpdateAsync(entity);
             }
         }
-        public abstract void ValidateDTO(TEntityCreateDto dto);
+        public abstract Task ValidateDTO(TEntityCreateDto dto);
     }
 }

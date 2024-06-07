@@ -6,13 +6,7 @@ namespace ManhPT_MidAssignment.API.Controllers
 {
     [Route("api/category")]
     [ApiController]
-    public class CategoriesController : BaseController<CategoryDTO, CategoryCreateDTO>
+    public class CategoriesController(ICategoryService service) : BaseController<CategoryDTO, CategoryCreateDTO>(service)
     {
-        private readonly ICategoryService _service;
-
-        public CategoriesController(ICategoryService service) : base(service)
-        {
-            _service = service;
-        }
     }
 }

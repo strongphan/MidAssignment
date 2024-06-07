@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManhPT_MidAssignment.Applic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManhPT_MidAssignment.Domain", "ManhPT_MidAssignment.Domain\ManhPT_MidAssignment.Domain.csproj", "{4393746E-6B52-4C7A-814A-AB4FBDB2768A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManhPT_MidAssignment.UnitTest", "ManhPT_MidAssignment.UnitTest\ManhPT_MidAssignment.UnitTest.csproj", "{8CE504C5-D2D1-4329-8BFB-795EE9ABBEA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{4393746E-6B52-4C7A-814A-AB4FBDB2768A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4393746E-6B52-4C7A-814A-AB4FBDB2768A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4393746E-6B52-4C7A-814A-AB4FBDB2768A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CE504C5-D2D1-4329-8BFB-795EE9ABBEA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CE504C5-D2D1-4329-8BFB-795EE9ABBEA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CE504C5-D2D1-4329-8BFB-795EE9ABBEA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CE504C5-D2D1-4329-8BFB-795EE9ABBEA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

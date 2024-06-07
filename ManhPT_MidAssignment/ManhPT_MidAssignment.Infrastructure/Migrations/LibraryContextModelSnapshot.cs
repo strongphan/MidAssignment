@@ -69,122 +69,122 @@ namespace ManhPT_MidAssignment.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("258e4b1e-4aac-4e75-9876-fd49938de70d"),
+                            Id = new Guid("f6dea16e-cc8e-4bff-9ddb-319af23a597f"),
                             Author = "J. R. R. Tolkien",
                             AvailableCopies = 10,
-                            CategoryId = new Guid("8f6a779d-f748-4e9e-9585-5eaa5ff865b8"),
-                            CreatedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1307),
-                            ModifiedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1308),
+                            CategoryId = new Guid("65209f03-4db1-49be-bea4-12073495ae6b"),
+                            CreatedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7284),
+                            ModifiedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7285),
                             Title = "The Lord of the Rings"
                         },
                         new
                         {
-                            Id = new Guid("17047cfe-4fce-4fa8-9e9f-65c0091c4df4"),
+                            Id = new Guid("ba8c650a-9ac1-4c50-aa57-ba327bea3744"),
                             Author = "Stephen Hawking",
                             AvailableCopies = 10,
-                            CategoryId = new Guid("87557c79-453d-42f6-905c-6187f08ea7d5"),
-                            CreatedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1312),
-                            ModifiedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1312),
+                            CategoryId = new Guid("021774e2-1195-445c-99de-49c62e523ab2"),
+                            CreatedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7289),
+                            ModifiedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7289),
                             Title = "A Brief History of Time"
                         },
                         new
                         {
-                            Id = new Guid("9a70c16c-1e61-44b8-a14d-492b8fb0ebcd"),
+                            Id = new Guid("7304dfdf-1737-4615-be6c-30a817a9eefb"),
                             Author = "Orson Scott Card",
                             AvailableCopies = 10,
-                            CategoryId = new Guid("08b4abbf-de6c-4905-a0cf-f85b191feb6b"),
-                            CreatedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1314),
-                            ModifiedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1315),
+                            CategoryId = new Guid("0e1d02a8-6052-4384-9b5b-d60d1c9403d5"),
+                            CreatedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7292),
+                            ModifiedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7292),
                             Title = "Ender's Game"
                         },
                         new
                         {
-                            Id = new Guid("3e080535-ecaf-4dea-aa11-fcd68fb903da"),
+                            Id = new Guid("96b77c6a-7e66-4c18-b699-35d8880afa91"),
                             Author = "Patrick Rothfuss",
                             AvailableCopies = 10,
-                            CategoryId = new Guid("240aa7ba-54b5-464a-8adc-db5c9776a4a8"),
-                            CreatedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1317),
-                            ModifiedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1317),
+                            CategoryId = new Guid("1a9158d2-26c0-4c05-b6dd-773dcd1ff63a"),
+                            CreatedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7294),
+                            ModifiedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7295),
                             Title = "The Name of the Wind"
                         },
                         new
                         {
-                            Id = new Guid("9e38ea84-524e-47ff-87cc-21357270a565"),
+                            Id = new Guid("696630fa-26d1-4f2b-9130-6de86dfb966b"),
                             Author = "Agatha Christie",
                             AvailableCopies = 10,
-                            CategoryId = new Guid("5a28a879-1814-4468-a5b0-8d26a18f730e"),
-                            CreatedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1319),
-                            ModifiedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1320),
+                            CategoryId = new Guid("0d44adf2-c781-45cb-af10-a831843a680f"),
+                            CreatedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7299),
+                            ModifiedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7300),
                             Title = "And Then There Were None"
                         },
                         new
                         {
-                            Id = new Guid("fdad5bad-5082-4989-a195-17d3a56fb830"),
+                            Id = new Guid("82e9c557-88ed-40e3-a0e2-e9339a6510af"),
                             Author = "Jane Austen",
                             AvailableCopies = 10,
-                            CategoryId = new Guid("87557c79-453d-42f6-905c-6187f08ea7d5"),
-                            CreatedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1322),
-                            ModifiedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1323),
+                            CategoryId = new Guid("021774e2-1195-445c-99de-49c62e523ab2"),
+                            CreatedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7303),
+                            ModifiedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7303),
                             Title = "Pride and Prejudice"
                         },
                         new
                         {
-                            Id = new Guid("b8230493-7961-489f-a604-299dca142941"),
+                            Id = new Guid("4d3a4488-06a4-47b6-96d2-06170f501a62"),
                             Author = "Harper Lee",
                             AvailableCopies = 10,
-                            CategoryId = new Guid("08b4abbf-de6c-4905-a0cf-f85b191feb6b"),
-                            CreatedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1325),
-                            ModifiedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1325),
+                            CategoryId = new Guid("0e1d02a8-6052-4384-9b5b-d60d1c9403d5"),
+                            CreatedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7305),
+                            ModifiedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7306),
                             Title = "To Kill a Mockingbird"
                         },
                         new
                         {
-                            Id = new Guid("0a6dde70-36ed-4239-a8e1-1200769d0e54"),
+                            Id = new Guid("8a6f2788-28f2-42ae-8fd4-024c695ce374"),
                             Author = "F. Scott Fitzgerald",
                             AvailableCopies = 10,
-                            CategoryId = new Guid("240aa7ba-54b5-464a-8adc-db5c9776a4a8"),
-                            CreatedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1327),
-                            ModifiedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1328),
+                            CategoryId = new Guid("1a9158d2-26c0-4c05-b6dd-773dcd1ff63a"),
+                            CreatedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7308),
+                            ModifiedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7308),
                             Title = "The Great Gatsby"
                         },
                         new
                         {
-                            Id = new Guid("3714a890-5112-4f7b-9824-d3b4ba90324c"),
+                            Id = new Guid("03383ea8-cf5d-403c-8fd3-e3bf8ab36c20"),
                             Author = "Gabriel García Márquez",
                             AvailableCopies = 10,
-                            CategoryId = new Guid("5a28a879-1814-4468-a5b0-8d26a18f730e"),
-                            CreatedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1331),
-                            ModifiedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1332),
+                            CategoryId = new Guid("0d44adf2-c781-45cb-af10-a831843a680f"),
+                            CreatedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7310),
+                            ModifiedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7311),
                             Title = "One Hundred Years of Solitude"
                         },
                         new
                         {
-                            Id = new Guid("b2703b5c-2e5a-4432-abc5-dffcb63f8ee3"),
+                            Id = new Guid("8d6c1f7d-3775-444e-82c5-c194482aaeac"),
                             Author = "Marcel Proust",
                             AvailableCopies = 10,
-                            CategoryId = new Guid("08b4abbf-de6c-4905-a0cf-f85b191feb6b"),
-                            CreatedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1335),
-                            ModifiedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1335),
+                            CategoryId = new Guid("0e1d02a8-6052-4384-9b5b-d60d1c9403d5"),
+                            CreatedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7313),
+                            ModifiedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7314),
                             Title = "In Search of Lost Time"
                         },
                         new
                         {
-                            Id = new Guid("f182a37f-3bfc-4226-ae3b-0f22e7623f10"),
+                            Id = new Guid("ffdb73c2-5fb6-4b65-be7a-42404f6d320f"),
                             Author = "Miguel de Cervantes",
                             AvailableCopies = 10,
-                            CategoryId = new Guid("5a28a879-1814-4468-a5b0-8d26a18f730e"),
-                            CreatedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1337),
-                            ModifiedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1337),
+                            CategoryId = new Guid("0d44adf2-c781-45cb-af10-a831843a680f"),
+                            CreatedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7316),
+                            ModifiedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7316),
                             Title = "Don Quixote"
                         },
                         new
                         {
-                            Id = new Guid("0b268a13-3f2f-4195-aaf0-8e0c838fbf32"),
+                            Id = new Guid("66dafbbe-7632-4c57-bffc-56e8b8374ca4"),
                             Author = "Mary Shelley",
                             AvailableCopies = 10,
-                            CategoryId = new Guid("240aa7ba-54b5-464a-8adc-db5c9776a4a8"),
-                            CreatedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1339),
-                            ModifiedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1340),
+                            CategoryId = new Guid("1a9158d2-26c0-4c05-b6dd-773dcd1ff63a"),
+                            CreatedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7318),
+                            ModifiedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7319),
                             Title = "Frankenstein"
                         });
                 });
@@ -248,6 +248,9 @@ namespace ManhPT_MidAssignment.Infrastructure.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime?>("ModifiedAt")
                         .HasColumnType("datetime2");
 
@@ -296,37 +299,37 @@ namespace ManhPT_MidAssignment.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("8f6a779d-f748-4e9e-9585-5eaa5ff865b8"),
-                            CreatedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1247),
-                            ModifiedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1248),
+                            Id = new Guid("65209f03-4db1-49be-bea4-12073495ae6b"),
+                            CreatedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7207),
+                            ModifiedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7208),
                             Name = "Fiction"
                         },
                         new
                         {
-                            Id = new Guid("87557c79-453d-42f6-905c-6187f08ea7d5"),
-                            CreatedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1251),
-                            ModifiedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1252),
+                            Id = new Guid("021774e2-1195-445c-99de-49c62e523ab2"),
+                            CreatedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7227),
+                            ModifiedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7228),
                             Name = "Non-Fiction"
                         },
                         new
                         {
-                            Id = new Guid("08b4abbf-de6c-4905-a0cf-f85b191feb6b"),
-                            CreatedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1253),
-                            ModifiedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1254),
+                            Id = new Guid("0e1d02a8-6052-4384-9b5b-d60d1c9403d5"),
+                            CreatedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7229),
+                            ModifiedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7230),
                             Name = "Science Fiction"
                         },
                         new
                         {
-                            Id = new Guid("240aa7ba-54b5-464a-8adc-db5c9776a4a8"),
-                            CreatedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1255),
-                            ModifiedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1256),
+                            Id = new Guid("1a9158d2-26c0-4c05-b6dd-773dcd1ff63a"),
+                            CreatedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7231),
+                            ModifiedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7232),
                             Name = "Fantasy"
                         },
                         new
                         {
-                            Id = new Guid("5a28a879-1814-4468-a5b0-8d26a18f730e"),
-                            CreatedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1258),
-                            ModifiedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1258),
+                            Id = new Guid("0d44adf2-c781-45cb-af10-a831843a680f"),
+                            CreatedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7233),
+                            ModifiedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7234),
                             Name = "Mystery"
                         });
                 });
@@ -372,50 +375,50 @@ namespace ManhPT_MidAssignment.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("dda835e3-6c75-4bb3-a089-a7b02a698ab8"),
-                            CreatedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1129),
+                            Id = new Guid("d0be0600-cae9-42ff-8879-79618b7ea7eb"),
+                            CreatedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7069),
                             Email = "user1@example.com",
-                            ModifiedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1146),
+                            ModifiedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7087),
                             Name = "user1",
                             Password = "$2a$12$0NPISodxxD/AH/OGrKghM.xTFgZHmg1MZlDC.FJo6SS7gYSdhdo9i",
                             Role = 0
                         },
                         new
                         {
-                            Id = new Guid("41a9140f-e580-4839-b3d0-af01f420e71b"),
-                            CreatedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1152),
+                            Id = new Guid("8d6862bc-162e-47c4-b70d-45db33167b29"),
+                            CreatedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7094),
                             Email = "user2@example.com",
-                            ModifiedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1153),
+                            ModifiedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7094),
                             Name = "user2",
                             Password = "$2a$12$0NPISodxxD/AH/OGrKghM.xTFgZHmg1MZlDC.FJo6SS7gYSdhdo9i",
                             Role = 0
                         },
                         new
                         {
-                            Id = new Guid("da914301-d0e2-414a-bdc8-3713b77fbba9"),
-                            CreatedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1171),
+                            Id = new Guid("0007b24b-c914-41fd-b674-6a2d5b38226d"),
+                            CreatedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7097),
                             Email = "admin@example.com",
-                            ModifiedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1171),
+                            ModifiedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7098),
                             Name = "admin",
                             Password = "$2a$12$0NPISodxxD/AH/OGrKghM.xTFgZHmg1MZlDC.FJo6SS7gYSdhdo9i",
                             Role = 1
                         },
                         new
                         {
-                            Id = new Guid("55b3a5aa-6130-444b-9685-2c6ec995c623"),
-                            CreatedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1173),
+                            Id = new Guid("e9f29034-0170-4c6f-b6de-803087674b2f"),
+                            CreatedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7100),
                             Email = "user3@example.com",
-                            ModifiedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1174),
+                            ModifiedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7101),
                             Name = "user3",
                             Password = "$2a$12$0NPISodxxD/AH/OGrKghM.xTFgZHmg1MZlDC.FJo6SS7gYSdhdo9i",
                             Role = 0
                         },
                         new
                         {
-                            Id = new Guid("1f28f317-067b-4868-b042-f791b3d1a470"),
-                            CreatedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1175),
+                            Id = new Guid("30caa91c-9e16-464b-801e-23dc6b849edb"),
+                            CreatedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7103),
                             Email = "user4@example.com",
-                            ModifiedAt = new DateTime(2024, 6, 1, 16, 20, 52, 330, DateTimeKind.Local).AddTicks(1176),
+                            ModifiedAt = new DateTime(2024, 6, 7, 9, 29, 23, 814, DateTimeKind.Local).AddTicks(7103),
                             Name = "user4",
                             Password = "$2a$12$0NPISodxxD/AH/OGrKghM.xTFgZHmg1MZlDC.FJo6SS7gYSdhdo9i",
                             Role = 0
@@ -427,7 +430,7 @@ namespace ManhPT_MidAssignment.Infrastructure.Migrations
                     b.HasOne("ManhPT_MidAssignment.Domain.Entity.Category", "Category")
                         .WithMany("Books")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Category");
@@ -437,12 +440,13 @@ namespace ManhPT_MidAssignment.Infrastructure.Migrations
                 {
                     b.HasOne("ManhPT_MidAssignment.Domain.Entity.User", "Approver")
                         .WithMany()
-                        .HasForeignKey("ApproverId");
+                        .HasForeignKey("ApproverId")
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("ManhPT_MidAssignment.Domain.Entity.User", "Requestor")
                         .WithMany("BookBorrowingRequests")
                         .HasForeignKey("RequestorId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Approver");

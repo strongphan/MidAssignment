@@ -8,7 +8,7 @@ namespace ManhPT_MidAssignment.Application.Mapper
     {
         public BookProfile()
         {
-            CreateMap<Book, BookDTO>();
+            CreateMap<Book, BookDTO>().ReverseMap();
             CreateMap<BookCreateDTO, Book>();
         }
     }

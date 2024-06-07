@@ -7,17 +7,23 @@ using System.Security.Claims;
 
 namespace ManhPT_MidAssignment.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/borrowing_request")]
     [ApiController]
-    [Authorize]
     public class BorrowRequestsController : ControllerBase
     {
         private readonly IBorrowRequestService _service;
         private Guid UserId => Guid.Parse(User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value);
         private string UserName => Convert.ToString(User.Claims.First(c => c.Type == ClaimTypes.Name).Value);
+
         public BorrowRequestsController(IBorrowRequestService service)
         {
             _service = service;
+        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetByIdAsync(Guid id)
+        {
+            var dto = await _service.GetByIdAsync(id);
+            return Ok(dto);
         }
         [HttpPost("filter")]
         public async Task<IActionResult> GetRequestAsync(FilterRequest request)
@@ -32,6 +38,12 @@ namespace ManhPT_MidAssignment.API.Controllers
             var res = await _service.GetRequestNotReturnedAsync(request);
             return Ok(res);
         }
+        [HttpPost("user/{requestId}")]
+        public async Task<IActionResult> GetRequestNotReturnedAsync(FilterRequest request, Guid requestId)
+        {
+            var res = await _service.GetRequestByRequestorIdAsync(request, requestId);
+            return Ok(res);
+        }
         [HttpPost]
         [Authorize(Roles = nameof(Role.User))]
         public async Task<IActionResult> BorrowBooksAsync(List<Guid> bookIds)
@@ -39,18 +51,18 @@ namespace ManhPT_MidAssignment.API.Controllers
             var res = await _service.BorrowBooksAsync(UserId, UserName, bookIds);
             return Ok(res);
         }
-        [HttpPut("status")]
+        [HttpPut("status/{requestId}")]
         [Authorize(Roles = nameof(Role.Admin))]
-        public async Task<IActionResult> UpdateRequestStatus(Guid requestId, Status status)
+        public async Task<IActionResult> UpdateRequestStatusAsync(Guid requestId, Status status)
         {
-            var res = await _service.UpdateRequestStatus(UserId, UserName, requestId, status);
+            var res = await _service.UpdateRequestStatusAsync(UserId, UserName, requestId, status);
             return Ok(res);
         }
-        [HttpPut("return")]
+        [HttpPut("return/{requestId}")]
         [Authorize(Roles = nameof(Role.Admin))]
-        public async Task<IActionResult> ConfirmReturned(Guid requestId)
+        public async Task<IActionResult> ConfirmReturnedAsync(Guid requestId)
         {
-            var res = await _service.ConfirmReturned(UserId, UserName, requestId);
+            var res = await _service.ConfirmReturnedAsync(UserId, UserName, requestId);
             return Ok(res);
         }
     }

@@ -32,25 +32,25 @@ namespace ManhPT_MidAssignment.API.Controllers
 
         [HttpPost]
         [Authorize(Roles = nameof(Role.Admin))]
-        public async Task<IActionResult> Insert(TEntityCreateDto dto)
+        public async Task<IActionResult> InsertAsync(TEntityCreateDto dto)
         {
-            _service.InsertAsync(dto, UserName);
+            await _service.InsertAsync(dto, UserName);
             return Ok("");
         }
 
         [HttpPut("{id}")]
         [Authorize(Roles = nameof(Role.Admin))]
-        public async Task<IActionResult> Update(Guid id, TEntityCreateDto dto)
+        public async Task<IActionResult> UpdateAsync(Guid id, TEntityCreateDto dto)
         {
-            _service.UpdateAsync(id, dto, UserName);
+            await _service.UpdateAsync(id, dto, UserName);
             return Ok();
         }
 
         [HttpDelete("{id}")]
         [Authorize(Roles = nameof(Role.Admin))]
-        public async Task<IActionResult> Delete(Guid id)
+        public async Task<IActionResult> DeleteAsync(Guid id)
         {
-            _service.DeleteAsync(id);
+            await _service.DeleteAsync(id);
             return Ok();
         }
     }

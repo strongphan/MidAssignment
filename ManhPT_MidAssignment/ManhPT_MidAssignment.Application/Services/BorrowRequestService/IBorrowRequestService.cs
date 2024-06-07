@@ -6,10 +6,12 @@ namespace ManhPT_MidAssignment.Application.Services.BorrowRequestService
 {
     public interface IBorrowRequestService
     {
+        Task<BorrowingRequestDTO> GetByIdAsync(Guid Id);
         Task<string> BorrowBooksAsync(Guid userId, string userName, List<Guid> bookIds);
-        Task<bool> UpdateRequestStatus(Guid userId, string userName, Guid requestId, Status status);
-        Task<bool> ConfirmReturned(Guid userId, string userName, Guid requestId);
+        Task<bool> UpdateRequestStatusAsync(Guid userId, string userName, Guid requestId, Status status);
+        Task<bool> ConfirmReturnedAsync(Guid userId, string userName, Guid requestId);
         Task<PaginationResponse<BorrowingRequestDTO>> GetRequestAsync(FilterRequest request);
         Task<PaginationResponse<BorrowingRequestDTO>> GetRequestNotReturnedAsync(FilterRequest request);
+        Task<PaginationResponse<BorrowingRequestDTO>> GetRequestByRequestorIdAsync(FilterRequest filter, Guid id);
     }
 }

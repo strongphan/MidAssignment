@@ -1,7 +1,9 @@
-﻿using ManhPT_MidAssignment.Application.DTOs.AuthDTOs;
+﻿using AutoMapper;
+using ManhPT_MidAssignment.Application.DTOs.AuthDTOs;
 using ManhPT_MidAssignment.Application.IRepository;
 using ManhPT_MidAssignment.Application.Services.TokenService;
 using ManhPT_MidAssignment.Domain.Entity;
+using ManhPT_MidAssignment.Domain.Exceptions;
 
 namespace ManhPT_MidAssignment.Application.Services.UserService
 {
@@ -9,11 +11,24 @@ namespace ManhPT_MidAssignment.Application.Services.UserService
     {
         private readonly IUserRepo _userRepo;
         private readonly ITokenService _tokenService;
+        private readonly IMapper _mapper;
 
-        public UserService(IUserRepo userRepo, ITokenService tokenService)
+        public UserService(IUserRepo userRepo, ITokenService tokenService, IMapper mapper)
         {
             _userRepo = userRepo;
             _tokenService = tokenService;
+            _mapper = mapper;
+        }
+        public async Task<UserDTO> GetByIdAsync(Guid id)
+        {
+            var entity = await _userRepo.GetByIdAsync(id);
+            if (entity == null)
+            {
+                throw new NotFoundException();
+            }
+            var dto = _mapper.Map<UserDTO>(entity);
+            return dto;
+
         }
         public async Task<User> FindUserByEmailAsync(string email) => await _userRepo.FindUserByEmailAsync(email);
 
@@ -39,7 +54,7 @@ namespace ManhPT_MidAssignment.Application.Services.UserService
         {
             var getUser = await FindUserByEmailAsync(dto.Email!);
             if (getUser != null)
-                return new RegistrationResponse(false, "User alredy exist");
+                return new RegistrationResponse(false, "User already exist");
 
             var user = new User
             {
@@ -52,7 +67,7 @@ namespace ManhPT_MidAssignment.Application.Services.UserService
                 CreatedBy = "ManhPhan",
                 ModifiedBy = "ManhPhan",
             };
-            _userRepo.InsertAsync(user);
+            await _userRepo.InsertAsync(user);
             return new RegistrationResponse(true, "Register success");
 
         }

@@ -7,6 +7,8 @@ namespace ManhPT_MidAssignment.Application.Services.BookService
     public interface IBookService : IBaseService<BookDTO, BookCreateDTO>
     {
         Task<PaginationResponse<BookDTO>> GetFilterAsync(FilterRequest request);
+        Task<IEnumerable<BookDTO?>> GetByCategoryAsync(Guid categoryId);
+
     }
 
 

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ManhPT_MidAssignment.Application.DTOs.CategoryDTOs;
+using System.ComponentModel.DataAnnotations;
 
 namespace ManhPT_MidAssignment.Application.DTOs.BookDTOs
 {
@@ -15,6 +16,9 @@ namespace ManhPT_MidAssignment.Application.DTOs.BookDTOs
         [StringLength(500, MinimumLength = 10)]
         public string? Description { get; set; }
         public Guid CategoryId { get; set; }
+        public CategoryDTO? Category { get; set; }
+
+        [Required]
         public int AvailableCopies { get; set; }
     }
 }

@@ -9,6 +9,7 @@ namespace ManhPT_MidAssignment.Application.Mapper
         public BorrowingRequest()
         {
             CreateMap<BookBorrowingRequest, BorrowingRequestDTO>();
+            CreateMap<BookBorrowingRequestDetails, BorrowingRequestDetailDTO>();
         }
     }
 }

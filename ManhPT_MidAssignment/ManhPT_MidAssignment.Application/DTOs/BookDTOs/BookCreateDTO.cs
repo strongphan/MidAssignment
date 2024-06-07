@@ -13,6 +13,7 @@ namespace ManhPT_MidAssignment.Application.DTOs.BookDTOs
         [StringLength(500, MinimumLength = 10)]
         public string Description { get; set; }
         public Guid CategoryId { get; set; }
+        [Required]
         public int AvailableCopies { get; set; }
     }
 }

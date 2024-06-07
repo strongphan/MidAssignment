@@ -1,6 +1,8 @@
+using ManhPT_MidAssignment.API.Middleware;
 using ManhPT_MidAssignment.Application.IRepository;
 using ManhPT_MidAssignment.Application.IRpository;
 using ManhPT_MidAssignment.Application.Services.BookService;
+using ManhPT_MidAssignment.Application.Services.BorrowRequestService;
 using ManhPT_MidAssignment.Application.Services.CategoryService;
 using ManhPT_MidAssignment.Application.Services.TokenService;
 using ManhPT_MidAssignment.Application.Services.UserService;
@@ -9,12 +11,14 @@ using ManhPT_MidAssignment.Infrastructure.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -69,7 +73,8 @@ builder.Services.AddCors(options =>
     {
         builder.AllowAnyOrigin()
                .AllowAnyMethod()
-               .AllowAnyHeader();
+               .AllowAnyHeader()
+               .WithExposedHeaders("Authorization");
     });
 });
 
@@ -90,6 +95,7 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 //Borrowing services
 builder.Services.AddScoped<IBookBorrowingRequestRepo, BookBorrowingRequestRepo>();
+builder.Services.AddScoped<IBorrowRequestService, BorrowRequestService>();
 
 var app = builder.Build();
 
@@ -102,9 +108,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors("AllowOrigin");
+
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.Run();

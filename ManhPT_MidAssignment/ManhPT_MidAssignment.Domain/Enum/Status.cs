@@ -2,8 +2,8 @@
 {
     public enum Status
     {
-        Waiting = 0,
-        Approved = 1,
-        Rejected = 2,
+        Waiting,
+        Approved,
+        Rejected,
     }
 }
