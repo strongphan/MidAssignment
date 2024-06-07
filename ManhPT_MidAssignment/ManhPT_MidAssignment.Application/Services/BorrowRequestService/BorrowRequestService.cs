@@ -50,10 +50,12 @@ namespace ManhPT_MidAssignment.Application.Services.BorrowRequestService
             }
 
             var month = DateTime.Now.Month;
+            var year = DateTime.Now.Year;
 
             var userRequestsThisMonth = await _borrowingRequestRepo.GetRequestsByUserAndMonthAsync(
                 userId,
-                month
+                month,
+                year
             );
 
             if (userRequestsThisMonth.Count >= 3)

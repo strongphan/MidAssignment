@@ -71,43 +71,52 @@ namespace ManhPT_MidAssignment.UnitTest.Services
         [Test]
         public async Task DeleteAsync_CategoryExists_ShouldDeleteCategory()
         {
+            // Arrange
             var categoryId = Guid.NewGuid();
             var category = new Category { Id = categoryId };
             _mockBookRepo.Setup(repo => repo.GetByCategoryAsync(categoryId)).ReturnsAsync(null as List<Book>);
             _mockCategoryRepo.Setup(r => r.GetByIdAsync(categoryId)).ReturnsAsync(category);
 
+            // Act
             await _service.DeleteAsync(categoryId);
 
+            // Assert
             _mockCategoryRepo.Verify(r => r.DeleteAsync(category), Times.Once);
         }
 
         [Test]
         public void DeleteAsync_CategoryDoesNotExist_ShouldThrowNotFoundException()
         {
+            // Arrange
             var categoryId = Guid.NewGuid();
             _mockBookRepo.Setup(repo => repo.GetByCategoryAsync(categoryId)).ReturnsAsync(null as List<Book>);
             _mockCategoryRepo.Setup(r => r.GetByIdAsync(categoryId)).ReturnsAsync(null as Category);
 
+            // Assert
             Assert.ThrowsAsync<NotFoundException>(() => _service.DeleteAsync(categoryId));
         }
 
         [Test]
         public async Task GetAllAsync_ShouldReturnAllCategories()
         {
+            // Arrange
             var categories = new List<Category> { new Category(), new Category() };
             var categoryDtos = new List<CategoryDTO> { new CategoryDTO(), new CategoryDTO() };
 
             _mockCategoryRepo.Setup(r => r.GetAllAsync()).ReturnsAsync(categories);
             _mockMapper.Setup(m => m.Map<IEnumerable<CategoryDTO>>(categories)).Returns(categoryDtos);
 
+            // Act
             var result = await _service.GetAllAsync();
 
+            // Assert
             Assert.That(result, Is.EqualTo(categoryDtos));
         }
 
         [Test]
         public async Task GetByIdAsync_CategoryExists_ShouldReturnCategoryDTO()
         {
+            // Arrange
             var categoryId = Guid.NewGuid();
             var category = new Category { Id = categoryId };
             var categoryDto = new CategoryDTO { Id = categoryId };
@@ -115,37 +124,45 @@ namespace ManhPT_MidAssignment.UnitTest.Services
             _mockCategoryRepo.Setup(r => r.GetByIdAsync(categoryId)).ReturnsAsync(category);
             _mockMapper.Setup(m => m.Map<CategoryDTO>(category)).Returns(categoryDto);
 
+            // Act
             var result = await _service.GetByIdAsync(categoryId);
 
+            // Assert
             Assert.That(result, Is.EqualTo(categoryDto));
         }
 
         [Test]
         public void GetByIdAsync_CategoryDoesNotExist_ShouldThrowNotFoundException()
         {
+            // Arrange
             var categoryId = Guid.NewGuid();
 
             _mockCategoryRepo.Setup(r => r.GetByIdAsync(categoryId)).ReturnsAsync((Category)null);
 
+            // Assert
             Assert.ThrowsAsync<NotFoundException>(() => _service.GetByIdAsync(categoryId));
         }
 
         [Test]
         public async Task InsertAsync_ShouldInsertCategory()
         {
+            // Arrange
             var categoryCreateDto = new CategoryCreateDTO();
             var category = new Category();
 
             _mockMapper.Setup(m => m.Map<Category>(categoryCreateDto)).Returns(category);
 
+            // Act
             await _service.InsertAsync(categoryCreateDto, "testUser");
 
+            // Assert
             _mockCategoryRepo.Verify(r => r.InsertAsync(category), Times.Once);
         }
 
         [Test]
         public async Task UpdateAsync_CategoryExists_ShouldUpdateCategory()
         {
+            // Arrange
             var categoryId = Guid.NewGuid();
             var categoryCreateDto = new CategoryCreateDTO();
             var category = new Category { Id = categoryId };
@@ -153,19 +170,23 @@ namespace ManhPT_MidAssignment.UnitTest.Services
             _mockCategoryRepo.Setup(r => r.GetByIdAsync(categoryId)).ReturnsAsync(category);
             _mockMapper.Setup(m => m.Map<Category>(categoryCreateDto)).Returns(category);
 
+            // Act
             await _service.UpdateAsync(categoryId, categoryCreateDto, "testUser");
 
+            // Assert
             _mockCategoryRepo.Verify(r => r.UpdateAsync(category), Times.Once);
         }
 
         [Test]
         public void UpdateAsync_CategoryDoesNotExist_ShouldThrowNotFoundException()
         {
+            // Arrange
             var categoryId = Guid.NewGuid();
             var categoryCreateDto = new CategoryCreateDTO();
 
             _mockCategoryRepo.Setup(r => r.GetByIdAsync(categoryId)).ReturnsAsync((Category)null);
 
+            // Assert
             Assert.ThrowsAsync<NotFoundException>(() => _service.UpdateAsync(categoryId, categoryCreateDto, "testUser"));
         }
 

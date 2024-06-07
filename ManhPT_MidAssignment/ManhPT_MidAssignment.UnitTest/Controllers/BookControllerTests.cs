@@ -16,7 +16,6 @@ namespace ManhPT_MidAssignment.UnitTest.Controllers
         [SetUp]
         public void SetUp()
         {
-            _mockService = new Mock<IBookService>();
             _controller = new BooksController(_mockService.Object);
         }
 

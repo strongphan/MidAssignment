@@ -93,9 +93,9 @@ namespace ManhPT_MidAssignment.Infrastructure.Repository
             return new(items, totalCount);
         }
 
-        public async Task<List<BookBorrowingRequest>> GetRequestsByUserAndMonthAsync(Guid userId, int month)
+        public async Task<List<BookBorrowingRequest>> GetRequestsByUserAndMonthAsync(Guid userId, int month, int year)
         {
-            return await _table.Where(r => r.RequestorId == userId && r.DateRequested.Month == month).AsNoTracking().ToListAsync();
+            return await _table.Where(r => r.RequestorId == userId && r.DateRequested.Month == month && r.DateRequested.Year == year).AsNoTracking().ToListAsync();
         }
         private static Expression<Func<BookBorrowingRequest, object>> GetSortProperty(FilterRequest request) =>
         request.SortColumn?.ToLower() switch
