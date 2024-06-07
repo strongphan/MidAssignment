@@ -7,7 +7,7 @@ using System.Security.Claims;
 
 namespace ManhPT_MidAssignment.API.Controllers
 {
-    [Route("api/borrowing_request")]
+    [Route("api/borrowing_requests")]
     [ApiController]
     public class BorrowRequestsController : ControllerBase
     {

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ManhPT_MidAssignment.API.Controllers
 {
-    [Route("api/user")]
+    [Route("api/users")]
     [ApiController]
     public class UsersController(IUserService userService) : ControllerBase
     {

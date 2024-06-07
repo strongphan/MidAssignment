@@ -5,7 +5,7 @@ export const apiGetProfile = (id) =>
     try {
       const response = await axiosConfig({
         method: "get",
-        url: `https://localhost:7244/api/user/${id}`,
+        url: `https://localhost:7244/api/users/${id}`,
       });
       resolve(response);
     } catch (error) {

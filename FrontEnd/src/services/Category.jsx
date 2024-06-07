@@ -1,5 +1,5 @@
 import axiosConfig from "../configs/axiosConfig";
-const baseUrl = "https://localhost:7244/api/category/";
+const baseUrl = "https://localhost:7244/api/categories/";
 export const apiGetCategory = (id) =>
   new Promise(async (resolve, reject) => {
     try {

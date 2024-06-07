@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ManhPT_MidAssignment.API.Controllers
 {
-    [Route("api/book")]
+    [Route("api/books")]
     [ApiController]
     public class BooksController(IBookService service) : BaseController<BookDTO, BookCreateDTO>(service)
     {

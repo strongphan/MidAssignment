@@ -5,7 +5,7 @@ export const apiLogin = (params) =>
     try {
       const response = await axiosConfig({
         method: "post",
-        url: `https://localhost:7244/api/user/login`,
+        url: `https://localhost:7244/api/users/login`,
         data: params,
       });
       resolve(response);
@@ -18,7 +18,7 @@ export const apiRegister = (params) =>
     try {
       const response = await axiosConfig({
         method: "post",
-        url: `https://localhost:7244/api/user/register`,
+        url: `https://localhost:7244/api/users/register`,
         data: params,
       });
       resolve(response);

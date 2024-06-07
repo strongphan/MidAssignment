@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ManhPT_MidAssignment.API.Controllers
 {
-    [Route("api/category")]
+    [Route("api/categories")]
     [ApiController]
     public class CategoriesController(ICategoryService service) : BaseController<CategoryDTO, CategoryCreateDTO>(service)
     {

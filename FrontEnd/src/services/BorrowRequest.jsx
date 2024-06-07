@@ -1,5 +1,5 @@
 import axiosConfig from "../configs/axiosConfig";
-const baseUrl = "https://localhost:7244/api/borrowing_request/";
+const baseUrl = "https://localhost:7244/api/borrowing_requests/";
 
 export const apiCreateRequest = (booksId) =>
   new Promise(async (resolve, reject) => {

@@ -1,5 +1,5 @@
 import axiosConfig from "../configs/axiosConfig";
-const baseUrl = `https://localhost:7244/api/book/`;
+const baseUrl = `https://localhost:7244/api/books/`;
 
 export const apiGetFilterBooks = (params) =>
   new Promise(async (resolve, reject) => {

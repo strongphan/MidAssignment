@@ -49,6 +49,14 @@ namespace ManhPT_MidAssignment.Application.Services.BorrowRequestService
                 throw new DataInvalidException("Cannot borrow more than 5 books in one request.");
             }
 
+            HashSet<Guid> seen = [];
+            foreach (var bookId in bookIds)
+            {
+                if (!seen.Add(bookId))
+                {
+                    throw new DataInvalidException("Duplicate book IDs found in the request.");
+                }
+            }
             var month = DateTime.Now.Month;
             var year = DateTime.Now.Year;
 
